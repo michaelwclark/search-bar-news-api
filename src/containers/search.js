@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import { getNews, allTheNews } from '../actions';
 import { Provider } from 'react-provider'
 
-import LoadingBar from 'react-redux-loading-bar'
+
 
 
 
@@ -57,15 +57,12 @@ class Search extends Component {
     render() {
         return (
             <div className="main_search">
-                  <header>
-        <LoadingBar />
-      </header>
-      <section>
-        <LoadingBar scope="sectionBar" />
-      </section>
+       
                 <form onSubmit={this.specificNews}>
                     <input type="text" value={this.state.keyword} onChange={this.newState} value={this.state.keyword} />
                 </form>
+             
+     
                 <ParticularNews allNews= {this.props.all_news.articles}  />
                 
             </div>
