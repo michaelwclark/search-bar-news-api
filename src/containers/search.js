@@ -48,13 +48,15 @@ class Search extends Component {
 
     componentDidMount() {
         this.props.allTheNews()
-        console.log(this.state)
+        // console.log(this.state)
 
     }
 
     
 
     render() {
+        const {articles, loading} = this.props;
+
         return (
             <div className="main_search">
        
@@ -63,7 +65,7 @@ class Search extends Component {
                 </form>
              
      
-                <ParticularNews allNews= {this.props.all_news.articles}  />
+                <ParticularNews articles={articles}  loading={loading} />
                 
             </div>
         )
@@ -75,9 +77,9 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-    console.log(state)
     return {
-        all_news: state.news
+        articles: state.news.articles,
+        loading: state.news.loading
         
     }
 }
